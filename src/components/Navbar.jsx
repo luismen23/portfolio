@@ -1,0 +1,98 @@
+import React, { useState } from 'react'
+import { Link } from 'wouter'
+import {FaTimes} from "react-icons/fa"
+import {BiMenuAltRight} from "react-icons/bi"
+import {BsFillMoonStarsFill, BsFillSunFill} from "react-icons/bs"
+import { easeInOut, easeOut, motion } from 'framer-motion'
+
+
+export const Navbar = () => {
+
+  const [nav, setNav] = useState(false)
+  const [dark, setDark] = useState(false)
+
+  const handleClick = () => {
+    setNav(!nav)
+  }
+
+  const handleDark = () => {
+    setDark(!dark)
+    document.documentElement.classList.toggle('dark')
+  }
+  
+
+  const links = [
+    {
+      id:1,
+      name: "home",
+      link: "/"
+    },
+    {
+      id:2,
+      name: "about",
+      link: "About"
+    },
+    {
+      id:3,
+      name: "projects",
+      link: "Projects"
+    },
+    {
+      id:4,
+      name: "skills",
+      link: "Skills"
+    },
+    {
+      id:5,
+      name: "contact",
+      link: "Contact"
+    }
+  ]
+
+
+
+  return (
+    <motion.div initial={{y: -200}} animate={{y: 0}}  transition={{duration: 1.5, delay: 0.2, ease: easeOut}} className='flex flex-row justify-between md:h-40 md:flex md:flex-row md:justify-between md:items-center md:px-16'>
+
+        <Link to='/'>
+          <h1 initial={{y: -100}} animate={{y: 0}} transition={{duration: 1}} className="hidden md:flex md:py-6 md:text-xl md:font-bold md:text-color2 md:cursor-pointer md:relative md:p-0 md:m-1 dark:text-white ">Luis Mendoza</h1>
+        </Link>
+
+        <ul className='hidden md:px-1 md:text-color2 md:dark:text-white md:flex md:flex-row md:justify-center md:items-center md:text-center md:m-1 md:border md:rounded-full md:border-[#D1D5DB] md:shadow-md md:sticky'>
+          {
+          links.map(({link, name ,id}) => (
+                  <li className='py-3 px-3 text-base font-medium capitalize hover:text-color4 hover:bg-[#D1D5DB] border-transparent hover:border hover:rounded-full hover:py-2' key={id}>
+                    <Link to={link}>{name}</Link>
+                  </li> )) 
+          }      
+        </ul>
+
+        <div className='flex py-6 px-8 m-1 items-center cursor-pointer'>
+          <Link to='/'>
+            <h1 className="text-xl font-bold items-center text-color2 mr-6 md:hidden dark:text-white">Luis Mendoza</h1>
+          </Link>
+          <div className='m-3 text-color3 active:translate-y-1 active:transition' onClick={handleDark}>
+            {dark ? <BsFillSunFill size={20} className='text-color3 dark:text-white' /> : <BsFillMoonStarsFill className='text-color3 dark:text-white' size={20}/>}
+          </div>
+        </div>
+
+        <div className='cursor-pointer fixed z-20 py-8 px-10 right-0 text-color2 hover:text-color3 active:translate-y-1 hover:transition md:hidden ' onClick={handleClick}>
+          {nav ? <FaTimes size={20} className='dark:text-white'/> : <BiMenuAltRight size={25} className='dark:text-white'/>}
+        </div>
+        
+        <div className='flex items-center justify-center fixed bottom-4 left-0 top-auto right-0 z-50'>
+        {
+          nav && 
+          <motion.ul initial={{opacity: 0}} animate={{opacity: 1}}  transition={{duration: 0.5}} className='px-1 text-color2 flex flex-row items-center text-center m-1 border rounded-full mb-14 bg-[#e7e7e7a8] bg-opacity-75 border-[#D1D5DB] shadow-md md:hidden'>
+          {
+          links.map(({link, name ,id}) => (
+                  <motion.li className='py-3 px-2 text-sm font-semibold capitalize hover:text-color4 hover:bg-[#D1D5DB] border-transparent hover:rounded-full hover:py-2 ' key={id}>
+                    <Link to={link}>{name}</Link>
+                  </motion.li> )) 
+          }      
+        </motion.ul>
+        }
+        </div>
+    </motion.div>
+  )
+}
