@@ -22,12 +22,13 @@ export const ContactMe = () => {
           <HiLocationMarker size={18} className='text-color3 animate-pulse'/><p>Lecheria, Anzoategui, Venezuela</p>
         </div>
 
+      </div>
 
-        <form className='flex flex-col space-y-2 shrink mx-auto'>
+        <form className='flex flex-col space-y-2 shrink mx-auto pt-10'>
 
-          <div className='flex space-x-2'>
-          <input placeholder='Name' type="text" className='contactInput'/>
-          <input placeholder='Email' type="email" className='contactInput'/>
+          <div className='flex gap-2 shrink'>
+            <input placeholder='Name' type="text" className='contactInput'/>
+            <input placeholder='Email' type="email" className='contactInput'/>
           </div>
           
           <input placeholder='Subject' type="text" className='contactInput'/>
@@ -35,8 +36,8 @@ export const ContactMe = () => {
           <textarea placeholder='Message' className='contactInput'/>
           <button type='submit' className='bg-color4 py-2 rounded-md text-color1 font-semibold text-lg hover:scale-105 transition-all hover:font-bold'>Submit</button>
         </form>
+      
 
-      </div>
 
       
     </div>

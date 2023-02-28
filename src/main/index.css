@@ -7,5 +7,5 @@
 @tailwind utilities;
 
 .contactInput {
-    @apply outline-none bg-color1/30 text-[#000000b9] placeholder-[#000000b6] focus:border-[#25c5aae5] focus:font-bold dark:bg-color5/30 rounded-sm border-b-2 px-2 py-1 md:px-4 md:py-2 lg:px-6 lg:py-4 dark:text-white/70 dark:placeholder-white/70 transition-all dark:focus:border-color5 dark:focus:text-white
+    @apply outline-none bg-color1/30 text-[#000000b9] placeholder-[#000000b6] focus:border-[#25c5aae5] focus:font-bold dark:bg-color5/30 rounded-sm border-b-2 px-2 py-1 md:px-4 md:py-2  dark:text-white/70 dark:placeholder-white/70 dark:focus:border-color5 dark:focus:text-white
 }

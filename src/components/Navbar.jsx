@@ -80,9 +80,9 @@ export const Navbar = () => {
           {nav ? <FaTimes size={20} className='dark:text-white '/> : <BiMenuAltRight size={25} className='dark:text-white'/>}
         </div>
         
-        <div className=' absolute w-5/12 right-0 h-screen z-40 overflow-y-hidden overflow-x-hidden md:hidden'>
         {
-          nav && 
+          nav ? 
+        <div className=' absolute w-5/12 right-0 h-screen z-40 overflow-y-hidden overflow-x-hidden md:hidden'>
           <motion.ul initial={{opacity: 0, x:50}} animate={{opacity: 1, x:0}}  transition={{duration: 0.5}} className='px-1 text-color2 dark:text-white/95 flex flex-col items-center py-1 text-center bg-[#c9c9c9] dark:bg-color4 h-full justify-center border-[#D1D5DB] gap-10 shadow-md md:hidden'>
           {
           links.map(({link, name ,id}) => (
@@ -90,9 +90,10 @@ export const Navbar = () => {
                     <Link to={link}>{name}</Link>
                   </motion.li> )) 
           }      
-        </motion.ul>
+        </motion.ul> 
+        </div> :
+        <ul className='hidden'></ul>
         }
-        </div>
     </motion.div>
   )
 }
