@@ -58,7 +58,7 @@ export const Navbar = () => {
           <h1 initial={{y: -100}} animate={{y: 0}} transition={{duration: 1}} className="hidden md:flex md:py-6 md:text-xl md:font-bold md:text-color2 md:cursor-pointer md:relative md:p-0 md:m-1 dark:text-white ">Luis Mendoza</h1>
         </Link>
 
-        <ul className='hidden md:px-1 md:text-color2 md:dark:text-white md:flex md:flex-row md:justify-center md:items-center md:text-center md:m-1 md:border md:rounded-full md:border-[#D1D5DB] md:shadow-md md:sticky'>
+        <ul className='hidden md:px-1 md:text-color2 md:dark:text-white md:flex md:flex-row md:z-50 md:justify-center md:items-center md:text-center md:m-1 md:border md:rounded-full md:border-[#D1D5DB] md:shadow-md md:sticky'>
           {
           links.map(({link, name ,id}) => (
                   <li className='py-3 px-3 text-base font-medium capitalize hover:text-color4 hover:bg-[#D1D5DB] border-transparent hover:border hover:rounded-full hover:py-2' key={id}>
@@ -67,26 +67,26 @@ export const Navbar = () => {
           }      
         </ul>
 
-        <div className='flex py-6 px-8 m-1 items-center cursor-pointer'>
+        <div className='flex py-6 px-8 m-1 items-center cursor-pointer z-50'>
           <Link to='/'>
             <h1 className="text-xl font-bold items-center text-color2 mr-6 md:hidden dark:text-white">Luis Mendoza</h1>
           </Link>
           <div className='m-3 text-color3 active:translate-y-1 active:transition' onClick={handleDark}>
-            {dark ? <BsFillSunFill size={20} className='text-color3 dark:text-white' /> : <BsFillMoonStarsFill className='text-color3 dark:text-white' size={20}/>}
+            {dark ? <BsFillSunFill size={20} className='text-color3 dark:text-white ' /> : <BsFillMoonStarsFill className='text-color3 dark:text-white' size={20}/>}
           </div>
         </div>
 
-        <div className='cursor-pointer fixed z-20 py-8 px-10 right-0 text-color2 hover:text-color3 active:translate-y-1 hover:transition md:hidden ' onClick={handleClick}>
-          {nav ? <FaTimes size={20} className='dark:text-white'/> : <BiMenuAltRight size={25} className='dark:text-white'/>}
+        <div className='cursor-pointer fixed z-50 py-8 px-10 right-0 text-color2 hover:text-color3 active:translate-y-1 hover:transition md:hidden ' onClick={handleClick}>
+          {nav ? <FaTimes size={20} className='dark:text-white '/> : <BiMenuAltRight size={25} className='dark:text-white'/>}
         </div>
         
-        <div className='flex items-center justify-center fixed bottom-4 left-0 top-auto right-0 z-50'>
+        <div className=' absolute w-5/12 right-0 h-screen z-40 overflow-y-hidden overflow-x-hidden md:hidden'>
         {
           nav && 
-          <motion.ul initial={{opacity: 0}} animate={{opacity: 1}}  transition={{duration: 0.5}} className='px-1 text-color2 flex flex-row items-center text-center m-1 border rounded-full mb-14 bg-[#e7e7e7a8] bg-opacity-75 border-[#D1D5DB] shadow-md md:hidden'>
+          <motion.ul initial={{opacity: 0, x:50}} animate={{opacity: 1, x:0}}  transition={{duration: 0.5}} className='px-1 text-color2 dark:text-white/95 flex flex-col items-center py-1 text-center bg-[#c9c9c9] dark:bg-color4 h-full justify-center border-[#D1D5DB] gap-10 shadow-md md:hidden'>
           {
           links.map(({link, name ,id}) => (
-                  <motion.li className='py-3 px-2 text-sm font-semibold capitalize hover:text-color4 hover:bg-[#D1D5DB] border-transparent hover:rounded-full hover:py-2 ' key={id}>
+                  <motion.li className='text-xl font-semibold capitalize hover:text-color5 transition-all duration-200  dark:hover:text-color2 border-transparent ' key={id}>
                     <Link to={link}>{name}</Link>
                   </motion.li> )) 
           }      

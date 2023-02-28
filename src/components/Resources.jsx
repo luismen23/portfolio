@@ -35,7 +35,7 @@ export const Resources = () => {
 
             {
                 links.map(({id, child, href, download}) => (
-                    <li key={id} className='w-28 py-2 ml-[-70px] hover:ml-[7px] duration-500 '>
+                    <li key={id} className='w-28 py-2 ml-[-70px] hover:ml-[7px] duration-500'>
                         <a href={href} download={download} target='_blank' rel='noreferrer' className='flex justify-between items-center w-full  active:translate-y-1 active:transition'>
                             {child}
                         </a>
