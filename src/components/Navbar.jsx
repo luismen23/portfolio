@@ -76,17 +76,17 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div className='cursor-pointer fixed z-50 py-8 px-10 right-0 text-color2 hover:text-color3 active:translate-y-1 hover:transition md:hidden ' onClick={handleClick}>
-          {nav ? <FaTimes size={20} className='dark:text-white '/> : <BiMenuAltRight size={25} className='dark:text-white'/>}
+        <div className='cursor-pointer fixed z-50 py-8 px-10 right-0 active:translate-y-1 hover:transition md:hidden ' onClick={handleClick}>
+          {nav ? <FaTimes size={20} className='dark:text-white  text-color5 hover:text-[#D1D5DB]'/> : <BiMenuAltRight size={25} className='dark:text-white  hover:text-[#D1D5DB]' />}
         </div>
         
         {
           nav ? 
         <div className=' absolute w-5/12 right-0 h-screen z-40 overflow-y-hidden overflow-x-hidden md:hidden'>
-          <motion.ul initial={{opacity: 0, x:50}} animate={{opacity: 1, x:0}}  transition={{duration: 0.5}} className='px-1 text-color2 dark:text-white/95 flex flex-col items-center py-1 text-center bg-[#c9c9c9] dark:bg-color4 h-full justify-center border-l-color5 dark:border-l-white  border-l-2 border-[#D1D5DB] gap-10 shadow-md md:hidden'>
+          <motion.ul initial={{opacity: 0, x:50}} animate={{opacity: 1, x:0}}  transition={{duration: 0.5}} className='px-1 text-color5 dark:text-white/95 flex flex-col items-center py-1 text-center bg-color2 dark:bg-color4 h-full justify-center border-l-color5 dark:border-l-white  border-l-2 border-[#D1D5DB] gap-10 shadow-md md:hidden'>
           {
           links.map(({link, name ,id}) => (
-                  <motion.li className='text-xl font-semibold capitalize hover:text-color5 transition-all duration-200  dark:hover:text-color2 border-transparent ' key={id}>
+                  <motion.li className='text-xl font-semibold capitalize hover:text-[#D1D5DB] transition-all duration-200  dark:hover:text-color2 border-transparent ' key={id}>
                     <Link to={link}>{name}</Link>
                   </motion.li> )) 
           }      

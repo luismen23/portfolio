@@ -1,32 +1,30 @@
 import React from 'react'
 import {motion} from 'framer-motion';
-import webai from '../imgs/webai.png';
+// import webai from '../imgs/webai.png';
+import Filter from '../videos/filterReact.mp4';
+import Pcgamer from '../videos/pcgamerstore.mp4';
+import Pokedex from '../videos/pokedex.mp4';
 
 
 const projects = [
-  {
-    name: "Video Game Store Web Page / React and Tailwind",
-    id: 1,
-    src: "",
-    link: ""
-  },
-  {
-    name: "Pokedex / React",
-    id: 2,
-    src: "",
-    link: ""
-  },
+ 
   {
     name: "Landing Page of Pc Store / HTML, CSS, JS",
-    id: 3,
-    src: "",
-    link: ""
+    id: 1,
+    src: Pcgamer,
+    link: "https://luismen23.github.io/web-pages/pcgamerstore/"
   },
   {
     name: "Filtering / React",
-    id: 4,
-    src: "",
-    link: ""
+    id: 2,
+    src: Filter,
+    link: "https://github.com/luismen23/react-inventory"
+  },
+  {
+    name: "Pokedex / React",
+    id: 3,
+    src: Pokedex,
+    link: "https://github.com/luismen23/pokedex"
   },
 ]
 
@@ -46,12 +44,17 @@ export const MyProjects = () => {
           {
             projects.map(({name, id, src, link}) => (
               <motion.div initial={{opacity:0}} whileInView={{ opacity:1}} transition={{duration: 1}} 
-              className='flex flex-col justify-center items-center text-center snap-center space-y-5 p-20 md:p-15 lg:p-10 dark:text-white' key={id}>
-                  <img src={webai} className='max-w-sm md:max-w-md lg:max-w-lg'/>
-                  <div>
-                    <h4>Project {id} of {projects.length}: {name}</h4>
-                    <span className='underline text-color3/50 hover:font-bold dark:text-white/50'>Link</span>
-                  </div>
+              className='flex flex-col justify-center items-center text-center  py-28 mb-28 md:py-20 lg:py-16 dark:text-white' key={id}>
+
+                <div className=''>
+                  <h4 className='pb-10'>Project {id} of {projects.length}: {name}</h4>
+                  <video controls width="100%" height="100%"  preload='auto' className='max-w-md md:max-w-xl lg:max-w-3xl mb-3 snap-center'>
+                    <source src={src} type='video/mp4'/>
+                  </video> 
+                  <span className='text-color3/50 ' >Link: </span><span className='underline text-color3/50 hover:font-bold dark:text-white/50'>{link}</span>
+                </div>
+                  
+                  
               </motion.div>
             ))
           }
