@@ -27,18 +27,18 @@ export const ContactMe = () => {
           </h1>
       </motion.div>
 
-      <div className='flex flex-col space-y-10 mt-14 text-color1 dark:text-white/90'>
+      <motion.div className='flex flex-col space-y-10 mt-14 text-color1 dark:text-white/90' initial={{opacity:0 }} animate={{ opacity:1 }} transition={{duration: 1}}>
         <h4 className='text-lg font-medium mb-2'>Let's make something amazing.</h4>
 
-        <div className='flex flex-col justify-center items-center gap-3'>
+        <div className='flex flex-col justify-center items-center gap-3' >
           <p><BsFillTelephoneFill size={18} className='text-color3 inline-block animate-pulse dark:text-white/75'/> +584127280523</p>
           <p><IoMdMail size={18} className='text-color3 inline-block animate-pulse dark:text-white/75'/> lmmg1701@gmail.com</p>
           <p><HiLocationMarker size={18} className='text-color3 inline-block animate-pulse dark:text-white/75'/> Lecheria, Anzoategui, Venezuela</p>   
         </div>
 
-      </div>
+      </motion.div>
 
-        <div className='flex flex-col pt-14 w-screen items-center '>
+        <motion.div className='flex flex-col pt-14 w-screen items-center' initial={{opacity:0 , y:100}} animate={{ opacity:1 , y:0}}  transition={{duration: 1}}>
           <form className='flex flex-col w-60 md:w-96 gap-2' ref={form} onSubmit={sendEmail}>
 
             <input placeholder='Name' type="text" name="user_name" className='contactInput'/>
@@ -48,7 +48,7 @@ export const ContactMe = () => {
 
             <button type='submit' value="Send" className='bg-color4 py-2 rounded-md text-color1 font-semibold text-lg hover:scale-105 transition-all hover:font-bold'>Submit</button>
           </form>
-        </div>
+        </motion.div>
       
 
 
