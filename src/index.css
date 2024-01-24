@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.contactInput {
+    @apply outline-none bg-tahiti/30 text-[#000000b9] placeholder-[#000000b6] focus:border-[#25c5aae5] focus:font-bold dark:bg-yellow/30 rounded-md border-b-2 px-2 py-1 md:px-4 md:py-2  dark:text-white/70 dark:placeholder-white/70 dark:focus:border-yellow dark:focus:text-white
+}
