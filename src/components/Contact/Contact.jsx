@@ -30,7 +30,7 @@ export function Contact () {
 
         <div className='flex flex-col justify-center items-start gap-3'>
           <p className='flex items-center gap-1'><IoMdMail className='text-yellow/80 inline-block animate-pulse' /> lmmg1701@gmail.com</p>
-          <p className='flex items-center gap-1'><HiLocationMarker className='text-yellow/80 inline-block animate-pulse' /> Lecheria, Anzoategui, Venezuela</p>
+          <p className='flex items-center gap-1'><HiLocationMarker className='text-yellow/80 inline-block animate-pulse' /> Palermo, CABA, Argentina</p>
         </div>
 
       </motion.div>
@@ -38,8 +38,8 @@ export function Contact () {
       <motion.div className='flex flex-col  w-screen items-center' initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <form className='flex flex-col w-60 md:w-96 gap-2' ref={form} onSubmit={sendEmail}>
 
-          <input placeholder='Name' type='text' name='user_name' className='contactInput' />
-          <input placeholder='Email' type='email' name='user_email' className='contactInput' />
+          <input placeholder='Name' type='text' name='user_name' className='contactInput' required/>
+          <input placeholder='Email' type='email' name='user_email' className='contactInput' required/>
           <input placeholder='Subject' type='text' className='contactInput' />
           <textarea placeholder='Message' name='message' className='contactInput' />
 

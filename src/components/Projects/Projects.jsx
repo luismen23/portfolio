@@ -19,18 +19,25 @@ const projects = [
     img: pcgamerstore
   },
   {
-    name: 'Filtering',
-    id: 2,
-    src: Filter,
-    link: 'https://github.com/luismen23/react-inventory',
-    img: inventory
-  },
-  {
     name: 'Pokedex',
-    id: 3,
+    id: 2,
     src: Pokedex,
     link: 'https://github.com/luismen23/pokedex',
     img: pokedex
+  },
+  // {
+  //   name: 'Filtering',
+  //   id: 3,
+  //   src: Filter,
+  //   link: 'https://github.com/luismen23/react-inventory',
+  //   img: inventory
+  // },
+  {
+    name: 'To-do app',
+    id: 4,
+    src: '',
+    link: 'https://github.com/luismen23/pokedex',
+    img: ''
   }
 ]
 
