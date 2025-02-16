@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-refresh/only-export-components */
 import { useState } from 'react'
-import { FaHtml5, FaCss3, FaJs, FaReact, FaFigma } from 'react-icons/fa'
+import { FaHtml5, FaCss3, FaJs, FaReact} from 'react-icons/fa'
 import { SiNextdotjs, SiFramer, SiTailwindcss, SiNodedotjs, SiVisualstudio, SiMongodb, SiSqlite, SiTypescript } from 'react-icons/si'
 import { motion } from 'framer-motion'
 import { color } from 'framer-motion'
@@ -107,7 +107,7 @@ export function Skills () {
                 <div className='grid grid-cols-4 md:grid-cols-5 gap-5 md:w-full mx-auto max-w-[300px] md:max-w-[500px]'>
                   {item.icons?.map((icon, itemIndex) => {
                     return (
-                      <motion.div whileHover={{ scale: 1.2, color: `${icon.color}`}} className='text-5xl sm:text-6xl md:text-[5.2rem] ' key={itemIndex}>{icon.icon}</motion.div>
+                      <motion.div whileHover={{ scale: 1.2, color: `${icon.color}`}} className='text-5xl sm:text-6xl md:text-[5.2rem] transition-all duration-100' key={itemIndex}>{icon.icon}</motion.div>
                     )
                   })}
                 </div>
