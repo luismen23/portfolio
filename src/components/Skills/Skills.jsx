@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { FaHtml5, FaCss3, FaJs, FaReact} from 'react-icons/fa'
 import { SiNextdotjs, SiFramer, SiTailwindcss, SiNodedotjs, SiVisualstudio, SiMongodb, SiSqlite, SiTypescript } from 'react-icons/si'
 import { motion } from 'framer-motion'
-import { color } from 'framer-motion'
+import { logoColors } from '../Projects/Projects'
 
 
 export const skillsData = [
@@ -14,22 +14,22 @@ export const skillsData = [
       {
         title: 'Front End',
         icons: [
-          {icon: <FaHtml5 />, color: 'red'},
-          {icon: <FaCss3 />, color: 'blue'},
-          {icon: <FaJs />, color: 'yellow'},
-          {icon: <FaReact />, color: 'skyblue'},
-          {icon: <SiTailwindcss />, color: 'skyblue'},
-          {icon: <SiTypescript  />, color: 'blue'},
-          {icon: <SiNextdotjs />, color: 'purple'},
-          {icon: <SiFramer />, color: 'purple'},
+          {icon: <FaHtml5 />, color: logoColors.html, name: 'HTML', link: 'https://www.youtube.com/watch?v=3nYLTiY5skU&ab_channel=midulive'},
+          {icon: <FaCss3 />, color: logoColors.css, name: 'CSS', link: 'https://www.youtube.com/watch?v=TlJbu0BMLaY&t=7309s&ab_channel=midulive'},
+          {icon: <FaJs />, color: logoColors.javascript, name: 'JavaScript', link: 'https://www.aprendejavascript.dev/'},
+          {icon: <FaReact />, color: logoColors.react, name: 'React', link: 'https://www.youtube.com/watch?v=7iobxzd_2wY&t=1161s&ab_channel=midulive'},
+          {icon: <SiTailwindcss />, color: logoColors.tailwind, name: 'Tailwind', link: 'https://www.youtube.com/watch?v=X9mzabJQEs8&ab_channel=GentlemanProgramming'},
+          {icon: <SiTypescript  />, color: logoColors.typescript, name: 'Typescript', link: 'https://www.youtube.com/watch?v=fUgxxhI_bvc&ab_channel=midulive'},
+          {icon: <SiNextdotjs />, color: logoColors.nextjs, name: 'NextJS', link: 'https://www.youtube.com/watch?v=jMy4pVZMyLM&ab_channel=midulive'},
+          {icon: <SiFramer />, color: logoColors.framer, name: 'Framer Motion', link: 'https://www.youtube.com/watch?v=4HnLIAX0EoM&ab_channel=midulive'},
         ]
       },
       {
         title: 'Back End',
         icons: [
-          {icon: <SiNodedotjs />, color: 'green'},
-          {icon: <SiMongodb  />, color: 'green'},
-          {icon: <SiSqlite />, color: 'grey' },
+          {icon: <SiNodedotjs />, color: logoColors.node, name: 'NodeJS', link: 'https://www.youtube.com/watch?v=yB4n_K7dZV8&list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7&ab_channel=midulive'},
+          {icon: <SiMongodb  />, color: logoColors.mongodb, name: 'MongoDB', link: 'https://learn.mongodb.com/catalog'},
+          {icon: <SiSqlite />, color: logoColors.sqlite, name: 'SQLite', link: 'https://www.youtube.com/watch?v=6of9yHaGC78&ab_channel=midulive' },
         ]
       }
     ]
@@ -107,7 +107,9 @@ export function Skills () {
                 <div className='grid grid-cols-4 md:grid-cols-5 gap-5 md:w-full mx-auto max-w-[300px] md:max-w-[500px]'>
                   {item.icons?.map((icon, itemIndex) => {
                     return (
-                      <motion.div whileHover={{ scale: 1.2, color: `${icon.color}`}} className='text-5xl sm:text-6xl md:text-[5.2rem] transition-all duration-100' key={itemIndex}>{icon.icon}</motion.div>
+                      <motion.div whileHover={{ scale: 1.2, color: `${icon.color}`}} className='text-5xl sm:text-6xl md:text-[5.2rem] transition-transform duration-75' key={itemIndex}>
+                        <a href={icon.link} target='_blank' rel='noreferrer' >{icon.icon}</a>
+                      </motion.div>
                     )
                   })}
                 </div>

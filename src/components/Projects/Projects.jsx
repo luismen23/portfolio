@@ -1,15 +1,30 @@
 /* eslint-disable import/no-absolute-path */
 import { motion } from 'framer-motion'
 
-import Filter from '/videos/filterReact.mp4'
 import Pcgamer from '/videos/pcgamerstore.mp4'
 import pcgamerstore from '/img/pcgamerstore.png'
+import todo from '/img/to-do.png'
+import todoapp from '/videos/todo.mp4'
 import pokedex from '/img/pokedex.jpg'
-import inventory from '/img/inventory.png'
-import Pokedex from '/videos/pokedex.mp4'
+import Pokedex from '/videos/pokeapp.mp4'
 import { useState } from 'react'
 import { FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
+
+
+export const logoColors = {
+  html: '#e34c26',
+  css: '#264de4' ,
+  javascript: '#f0db4f',
+  react: '#61dbfb',
+  nextjs: '#454545' ,
+  tailwind: '#06b6d4',
+  node: '#3c873a',
+  typescript: '#007acc',
+  mongodb: '#589636',
+  framer: 'rgb(255, 87, 154)',
+  sqlite: '#454545',
+} 
 
 const projects = [
 
@@ -18,9 +33,9 @@ const projects = [
     id: 1,
     src: Pcgamer,
     tools: [
-      {icon: <FaHtml5 />, color: 'red'}, 
-      {icon: <FaCss3 />, color: 'blue'},
-      {icon: <FaJs />, color: 'yellow'}
+      {icon: <FaHtml5 />, color: logoColors.html}, 
+      {icon: <FaCss3 />, color: logoColors.css},
+      {icon: <FaJs />, color: logoColors.javascript}
     ] ,
     link: 'https://luismen23.github.io/web-pages/pcgamerstore/',
     img: pcgamerstore
@@ -30,31 +45,24 @@ const projects = [
     id: 2,
     src: Pokedex,
     tools: [
-      {icon: <FaReact />, color: 'blue'}, 
-      {icon: <SiNextdotjs />, color: 'purple'},
-      {icon: <SiTailwindcss />, color: 'blue'}
+      {icon: <FaReact />, color: logoColors.react}, 
+      {icon: <SiNextdotjs />, color: logoColors.nextjs},
+      {icon: <SiTailwindcss />, color: logoColors.tailwind}
     ] ,
-    link: 'https://github.com/luismen23/pokedex',
+    link: 'https://pokeapp-info.netlify.app',
     img: pokedex
   },
-  // {
-  //   name: 'Filtering',
-  //   id: 3,
-  //   src: Filter,
-  //   link: 'https://github.com/luismen23/react-inventory',
-  //   img: inventory
-  // },
   {
     name: 'To-do app',
     id: 4,
-    src: '',
+    src: todoapp,
     tools: [
-      {icon: <FaReact />, color: 'red'}, 
-      {icon: <SiTypescript />, color: 'blue'},
-      {icon: <FaCss3 />, color: 'yellow'}
+      {icon: <FaReact />, color: logoColors.react}, 
+      {icon: <SiTypescript />, color: logoColors.typescript},
+      {icon: <FaCss3 />, color: logoColors.css}
     ] ,
-    link: 'https://github.com/luismen23/pokedex',
-    img: ''
+    link: 'https://to-do-lm.netlify.app/',
+    img: todo
   }
 ]
 
@@ -71,7 +79,7 @@ export function Projects () {
     return (
       <div className='absolute top-0 left-0 w-screen h-screen bg-black flex flex-col justify-center items-center z-20 text-sm md:text-base font-semibold'>
         <div className='max-w-[900px] flex flex-col justify-center items-center text-center'>
-          <video controls preload='auto' className='w-80 h-52 md:w-[28rem] md:h-[16rem] xl:w-[36rem] xl:h-[22rem]'>
+          <video autoPlay loop controls className='w-80 h-52 md:w-[28rem] md:h-[16rem] xl:w-[36rem] xl:h-[22rem]'>
             <source src={currentVideo} type='video/mp4' />
           </video>
         </div>
@@ -99,14 +107,14 @@ export function Projects () {
                 <div className='flex flex-col justify-center items-center h-full gap-1 '>
                   <h6 className='text-sm md:text-lg xl:text-2xl text-yellow font-bold mb-2'>{name}</h6>
                   <div className='text-xs md:text-base xl:text-lg z-10 font-semibold flex text-center gap-1'>
-                    <button className='bg-gray rounded-xl text-metal font-semibold leading-none hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:w-14' onClick={() => handleClick(src)}>video</button>
-                    <a className='bg-gray rounded-xl text-metal font-semibold  hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:w-14 block leading-none  content-center' target='_blank' rel='noreferrer ' href={link}>link</a>
+                    <button className='bg-gray rounded-xl text-metal font-semibold leading-none hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:h-8 md:w-14' onClick={() => handleClick(src)}>video</button>
+                    <a className='bg-gray rounded-xl text-metal font-semibold  hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:h-8 md:w-14 block leading-none  content-center' target='_blank' rel='noreferrer ' href={link}>link</a>
                   </div>
-                  <div className='flex justify-center gap-2 mt-1'>
+                  <div className='flex justify-center gap-3 mt-1'>
                     {
                     tools.map((tool, indexTool) => {
                       return (
-                        <motion.div whileHover={{ scale: 1.1, color: `${tool.color}`}} className='text-2xl md:text-4xl transition-all duration-100'  key={indexTool}>
+                        <motion.div whileHover={{ scale: 1.1, color: `${tool.color}`}} className='text-2xl md:text-[2.7rem] xl:text-5xl '  key={indexTool}>
                           {tool.icon}
                         </motion.div>
                         )   
