@@ -12,7 +12,7 @@ export function Contact () {
 
     emailjs.sendForm('service_r01zjmg', 'template_h1kmxut', form.current, 'fJMZYVnBNyqTQaQvV')
       .then((result) => {
-        alert("Thanks for sent your message, I'll answer you the soon possible")
+        alert("Thanks for sending your message, I'll answer you as soon as possible")
       }, (error) => {
         console.log(error.text)
       })
