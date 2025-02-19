@@ -7,7 +7,7 @@ const socialLinks = [
   { href: 'https://www.linkedin.com/in/luismendoza23/', img: <FaLinkedin className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />, id: 2, name: 'Linkedin' },
   { href: 'https://github.com/luismen23?tab=repositories', img: <FaGithub className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />, id: 3, name: 'GitHub' },
   { href: 'https://twitter.com/luismendoza23', img: <FaXTwitter className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />, id: 4, name: 'X' },
-  { href: '/CV-Front-End english.pdf', img: <FaRegAddressBook className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />, id: 5, name: 'Resume', download: true }
+  { href: 'https://drive.google.com/file/d/1euy5APjC77WfvhR7_83vad-wG0dZhlDX/view?usp=drive_link', img: <FaRegAddressBook className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />, id: 5, name: 'Resume', download: true }
 ]
 
 export function Header () {
