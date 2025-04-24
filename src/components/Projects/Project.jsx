@@ -1,90 +1,72 @@
-import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
-export function Project({ name, id, src, link, img, tools }) {
-  const [currentVideo, setCurrentVideo] = useState(null)
-  const [show, setShow] = useState(false)
-
-  const handleClick = video => {
-    setCurrentVideo(video)
-    setShow(!show)
-  }
-
-  const Modal = src => {
-    return (
-      <div className='absolute top-0 left-0 w-screen h-screen bg-black flex flex-col justify-center items-center z-20 text-sm md:text-base font-semibold'>
-        <div className='max-w-[900px] flex flex-col justify-center items-center text-center'>
-          <video
-            autoPlay
-            loop
-            controls
-            className='w-80 h-52 md:w-[28rem] md:h-[16rem] xl:w-[36rem] xl:h-[22rem]'
-          >
-            <source src={currentVideo} type='video/mp4' />
-          </video>
-        </div>
-        <div className='absolute top-40 right-10 md:right-52 xl:right-80'>
-          <button
-            className='border bg-gray text-black rounded-full w-10 h-10 m-1 text-xl hover:bg-black hover:text-white transition-all duration-200'
-            onClick={handleClick}
-          >
-            X
-          </button>
-        </div>
-      </div>
-    )
-  }
+export const Project = ({ name, img, tools, link, id, src }) => {
+  const [isHovering, setIsHovering] = useState(false)
 
   return (
-    <div className='group flex cursor-pointer  transition-all duration-500 hover:shadow-metal rounded-xl hover:shadow-md'>
-      <img
-        src={img}
-        className='w-60 h-32 opacity-20 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem] object-cover object-top group-hover:opacity-20 transition-all duration-500 rounded-xl '
-      />
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: id * 0.1 }}
+      viewport={{ once: true }}
+      className='relative flex flex-col items-center justify-center p-4 border border-gray-700 rounded-lg shadow-lg bg-gray-800/80 backdrop-blur-sm w-full h-64 '
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* Video background on hover */}
+      {isHovering && src && (
+        <video
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className='absolute top-0 left-0 w-full h-full object-cover rounded-lg z-0 opacity-50'
+        />
+      )}
+      {/* Image background (default) */}
+      {!isHovering && img && (
+        <img
+          src={img}
+          alt={`${name} preview`}
+          className='absolute top-0 left-0 w-full h-full object-cover rounded-lg z-0 opacity-30'
+          // Add fallback in case image fails to load
+          onError={e => {
+            e.target.onerror = null // prevent infinite loop
+            e.target.src = `https://placehold.co/400x300/374151/ffffff?text=${encodeURIComponent(
+              name
+            )}`
+            e.target.classList.add('opacity-10') // Make placeholder less prominent
+          }}
+        />
+      )}
 
-      <div className='absolute transition-all group-hover:translate-y-1 duration-200 w-60 h-32 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem]'>
-        <div className='flex flex-col justify-center items-center h-full gap-1 '>
-          <h6 className='text-sm md:text-lg xl:text-2xl text-yellow font-bold mb-2'>
-            {name}
-          </h6>
-          <div className='text-xs md:text-base xl:text-lg z-10 font-semibold flex text-center gap-1'>
-            <button
-              className='bg-gray rounded-xl text-metal font-semibold leading-none hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:h-8 md:w-14'
-              onClick={() => handleClick(src)}
+      {/* Content Overlay */}
+      <div className='relative z-10 flex flex-col items-center justify-center text-center h-full'>
+        <h4 className='text-lg md:text-xl font-semibold mb-2 text-white'>
+          {name}
+        </h4>
+        <div className='flex space-x-3 my-3'>
+          {tools.map((tool, index) => (
+            <span
+              key={index}
+              style={{ color: tool.color }}
+              className='text-2xl md:text-3xl'
             >
-              video
-            </button>
-            <a
-              className='bg-gray rounded-xl text-metal font-semibold  hover:bg-purple hover:text-white transition-all duration-500 w-10 h-7 md:h-8 md:w-14 block leading-none  content-center'
-              target='_blank'
-              rel='noreferrer '
-              href={link}
-            >
-              web
-            </a>
-          </div>
-          <div className='flex justify-center gap-3 mt-1'>
-            {tools.map((tool, indexTool) => {
-              return (
-                <motion.div
-                  whileHover={{ scale: 1.1, color: `${tool.color}` }}
-                  className='text-2xl md:text-[2.7rem] xl:text-5xl '
-                  key={indexTool}
-                >
-                  {tool.icon}
-                </motion.div>
-              )
-            })}
-          </div>
+              {tool.icon}
+            </span>
+          ))}
         </div>
+        <a
+          href={link}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm transition-colors duration-200'
+        >
+          Visit Site
+        </a>
       </div>
-      <div>
-        {show ? (
-          <Modal src={src} handleClick={handleClick} />
-        ) : (
-          <div className='hidden z-30' />
-        )}
-      </div>
-    </div>
+    </motion.div>
   )
 }
