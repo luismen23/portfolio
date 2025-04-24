@@ -45,7 +45,7 @@ export const Project = ({ name, img, tools, link, id, src }) => {
       {/* Content Overlay */}
       <div className='relative z-10 flex flex-col items-center justify-between text-center h-full'>
         <div className='flex flex-col items-center justify-center'>
-          <h4 className='text-lg md:text-2xl h-9 flex items-center font-semibold mb-2 text-white md:font-bold md:bg-black/50 md:rounded-xl md:px-2 md:py-2'>
+          <h4 className='text-lg md:text-2xl h-9 flex items-center font-semibold mb-4 mt-4 text-white md:font-bold md:bg-black/50 md:rounded-xl md:px-2 md:py-2'>
             {name}
           </h4>
           <div className='flex space-x-3 my-3 mt-4'>
