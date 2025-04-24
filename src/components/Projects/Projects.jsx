@@ -3,12 +3,14 @@ import { motion } from 'framer-motion'
 
 import Pcgamer from '/videos/pcgamerstore.mp4'
 import pcgamerstore from '/img/pcgamerstore.png'
+import googletranslate from '/img/googletranslate.png'
+import gotranslate from '/videos/googletranslate.mp4'
 import reactappsv from '/videos/reactappsv.mp4'
 import pokedex from '/img/pokedex.jpg'
 import Pokedex from '/videos/pokeapp.mp4'
 import reactapps from '/img/reactapps.png'
 import { useState } from 'react'
-import { FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
+import { FaBootstrap, FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si'
 
 export const logoColors = {
@@ -27,16 +29,16 @@ export const logoColors = {
 
 const projects = [
   {
-    name: 'Landing Page',
+    name: 'Google Translate Clone',
     id: 1,
-    src: Pcgamer,
+    src: gotranslate,
     tools: [
-      { icon: <FaHtml5 />, color: logoColors.html },
-      { icon: <FaCss3 />, color: logoColors.css },
-      { icon: <FaJs />, color: logoColors.javascript },
+      { icon: <FaReact />, color: logoColors.react },
+      { icon: <SiTypescript />, color: logoColors.typescript },
+      { icon: <FaBootstrap />, color: logoColors.framer },
     ],
-    link: 'https://luismen23.github.io/web-pages/pcgamerstore/',
-    img: pcgamerstore,
+    link: 'https://google-translate-clone-lm.netlify.app/',
+    img: googletranslate,
   },
   {
     name: 'Poke App',
@@ -62,6 +64,18 @@ const projects = [
     link: 'https://react-apps-lm.netlify.app/',
     img: reactapps,
   },
+  {
+    name: 'Landing Page',
+    id: 1,
+    src: Pcgamer,
+    tools: [
+      { icon: <FaHtml5 />, color: logoColors.html },
+      { icon: <FaCss3 />, color: logoColors.css },
+      { icon: <FaJs />, color: logoColors.javascript },
+    ],
+    link: 'https://luismen23.github.io/web-pages/pcgamerstore/',
+    img: pcgamerstore,
+  },
 ]
 
 export function Projects() {
@@ -75,7 +89,7 @@ export function Projects() {
 
   const Modal = src => {
     return (
-      <div className='absolute top-0 left-0 w-screen h-screen bg-black flex flex-col justify-center items-center z-20 text-sm md:text-base font-semibold'>
+      <div className='absolute top-0 left-0 w-screen h-screen bg-black flex flex-col justify-center items-center z-10 text-sm md:text-base font-semibold'>
         <div className='max-w-[900px] flex flex-col justify-center items-center text-center'>
           <video
             autoPlay
@@ -88,7 +102,7 @@ export function Projects() {
         </div>
         <div className='absolute top-40 right-10 md:right-52 xl:right-80'>
           <button
-            className='border bg-gray text-black rounded-full px-3 py-2 m-1 text-xl'
+            className='border bg-gray text-black rounded-full w-10 h-10 m-1 text-xl hover:bg-black hover:text-white transition-all duration-200'
             onClick={handleClick}
           >
             X
@@ -105,21 +119,21 @@ export function Projects() {
       </h3>
 
       <h4 className='text-yellow opacity-75 pb-5'>
-        *hover or tap over the projects*
+        *go to website or preview*
       </h4>
-      <motion.div className='grid md:grid-cols-2 items-center gap-y-5 md:gap-x-5'>
+      <motion.div className='grid md:grid-cols-2 items-center gap-y-5 md:gap-x-5 '>
         {projects.map(({ name, id, src, link, img, tools }) => {
           return (
             <div
               key={id}
-              className='group flex cursor-pointer hover:translate-y-1 transform transition-all duration-500 hover:shadow-metal rounded-xl hover:shadow-md'
+              className='group flex cursor-pointer  transition-all duration-500 hover:shadow-metal rounded-xl hover:shadow-md'
             >
               <img
                 src={img}
-                className='w-60 h-32 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem] object-cover object-top group-hover:opacity-20 transition-all duration-500 rounded-xl'
+                className='w-60 h-32 opacity-20 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem] object-cover object-top group-hover:opacity-20 transition-all duration-500 rounded-xl'
               />
 
-              <div className='absolute opacity-0 group-hover:opacity-100 transition-all duration-500 w-60 h-32 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem]'>
+              <div className='absolute transition-all group-hover:translate-y-1 duration-200 w-60 h-32 sm:w-72 sm:h-40 md:w-[24rem] md:h-[12rem] xl:w-[26rem] xl:h-20rem]'>
                 <div className='flex flex-col justify-center items-center h-full gap-1 '>
                   <h6 className='text-sm md:text-lg xl:text-2xl text-yellow font-bold mb-2'>
                     {name}
@@ -137,7 +151,7 @@ export function Projects() {
                       rel='noreferrer '
                       href={link}
                     >
-                      link
+                      web
                     </a>
                   </div>
                   <div className='flex justify-center gap-3 mt-1'>
