@@ -33,7 +33,7 @@ const socialLinks = [
     name: 'X',
   },
   {
-    href: 'https://drive.google.com/file/d/1v1L2Q1y0yf4yGZK6LRvAOqjqBJv99sAu/view?usp=sharing',
+    href: 'https://drive.google.com/file/d/1YobO5oJfwVAf7_JWzoe72pxbz-FVmUyT/view?usp=sharing',
     img: (
       <FaRegAddressBook className='w-[20px] h-[20px] sm:w-[25px] sm:h-[25px]' />
     ),
